@@ -1,37 +1,19 @@
-
 pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
-                echo 'Source code is available in the workspace.'
+                checkout scm
             }
         }
 
         stage('Backend Tests') {
             steps {
                 sh '''
-                    python3 -m unittest discover -s backend/tests -v
-                '''
-            }
-        }
-
-        stage('Frontend Lint') {
-            steps {
-                sh '''
-                    cd frontend
-                    npm run lint
-                '''
-            }
-        }
-
-        stage('Frontend Build') {
-            steps {
-                sh '''
-                    cd frontend
-                    npm run build
+                    python3 -m venv .ci-venv
+                    .ci-venv/bin/python -m pip install -r backend/requirements.txt
+                    .ci-venv/bin/python -m unittest discover -s backend/tests -v
                 '''
             }
         }

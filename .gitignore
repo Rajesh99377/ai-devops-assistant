@@ -11,3 +11,4 @@ dist/
 # Environment files
 .env.local
 .env.production
+.ci-venv/
