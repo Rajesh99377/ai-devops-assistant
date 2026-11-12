@@ -65,6 +65,20 @@ function App() {
           <a href="#">Jenkins Logs</a>
           <a href="#history">Analysis History</a>
         </nav>
+
+        {/* Personal Developer Branding */}
+        <div className="sidebar-profile">
+          <div className="profile-logo">RD</div>
+
+          <div className="profile-details">
+            <h3>Rajesh Das</h3>
+            <p>DevOps Engineer</p>
+          </div>
+        </div>
+
+        <div className="sidebar-footer">
+          Built with passion by Rajesh Das
+        </div>
       </aside>
 
       <main className="main-content">
